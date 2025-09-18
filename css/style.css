@@ -162,9 +162,9 @@ h1 {
 }
 
 .form-details-row {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr auto;
-    gap: 15px;
+    gap: 20px;
     align-items: end;
     margin-bottom: 15px;
 }
