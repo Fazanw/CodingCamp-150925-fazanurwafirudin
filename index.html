@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        
+        <!-- Task Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalTasks">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="pendingTasks">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedTasks">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="overdueTasks">0</span>
+                <span class="stat-label">Overdue</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <span class="progress-text" id="progressText">0%</span>
+        </div>
+
+        <!-- Add Task Form -->
+        <form id="todoForm" class="todo-form">
+            <div class="task-input-row">
+                <div class="task-name-group">
+                    <label for="taskInput">Task Name:</label>
+                    <input type="text" id="taskInput" placeholder="Enter task..." required>
+                </div>
+            </div>
+            <div class="notes-row">
+                <div class="note-group">
+                    <label for="noteInput">Notes:</label>
+                    <textarea id="noteInput" placeholder="Add notes (optional)..."></textarea>
+                </div>
+            </div>
+            <div class="form-details-row">
+                <div class="date-group">
+                    <label for="startDateInput">Start Date:</label>
+                    <input type="date" id="startDateInput" required>
+                </div>
+                <div class="date-group">
+                    <label for="dueDateInput">Due Date:</label>
+                    <input type="date" id="dueDateInput" required>
+                </div>
+                <button type="submit" id="submitBtn" class="full-width-button">Add Task</button>
+            </div>
+        </form>
+
+        <!-- Filter and Sort Dropdowns -->
+        <div class="filter-sort-container">
+            <div class="dropdown-group">
+                <label for="filterSelect">Filter:</label>
+                <select id="filterSelect" class="dropdown">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="overdue">Overdue</option>
+                    <option value="pinned">Pinned</option>
+                </select>
+            </div>
+            <div class="dropdown-group">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" class="dropdown">
+                    <option value="alphabet-az">Alphabet A to Z</option>
+                    <option value="alphabet-za">Alphabet Z to A</option>
+                    <option value="date-created">Date Created</option>
+                    <option value="date-closed">Date Closed</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="todo-list" id="todoList"></div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Edit Task</h3>
+                <form id="editForm">
+                    <input type="text" id="editTaskInput" placeholder="Task text" required>
+                    <div class="date-group">
+                        <label for="editStartDateInput">Start Date:</label>
+                        <input type="date" id="editStartDateInput" required>
+                    </div>
+                    <div class="date-group">
+                        <label for="editDueDateInput">Due Date:</label>
+                        <input type="date" id="editDueDateInput" required>
+                    </div>
+                    <div class="note-group">
+                        <label for="editNoteInput">Notes:</label>
+                        <textarea id="editNoteInput" placeholder="Add notes (optional)..."></textarea>
+                    </div>
+                    <select id="editStatusInput">
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button type="submit">Update Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/script.js"></script>
+</body>
+</html>
